@@ -12,6 +12,8 @@ import { emailValidator } from '../helpers/emailValidator'
 import { passwordValidator } from '../helpers/passwordValidator'
 import { auth } from '../config/firebase-config'
 import { signInWithEmailAndPassword } from 'firebase/auth'
+import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('')
@@ -26,9 +28,9 @@ export default function LoginScreen({ navigation }) {
         //COLOCAR PARA NAVEGAR PARA TELA DE HOME
       })
       .catch(error => {
+        toast.error('Credenciais inválidas.')
         setEmail('')
         setPassword('')
-        console.log(error.message)
       })
   }
 

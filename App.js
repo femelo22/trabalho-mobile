@@ -3,6 +3,7 @@ import { Provider } from 'react-native-paper'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { theme } from './src/core/theme'
+import 'react-toastify/dist/ReactToastify.css';
   
 import {
   StartScreen,
@@ -11,11 +12,14 @@ import {
   ResetPasswordScreen,
   Dashboard,
 } from './src/screens'
+import { ToastContainer, toast } from 'react-toastify'
 
 const Stack = createStackNavigator()
 
 export default function App() {
   return (
+    <>
+    <ToastContainer />
     <Provider theme={theme}>
       <NavigationContainer>
         <Stack.Navigator
@@ -34,6 +38,10 @@ export default function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
+      {/* <ToastContainer /> */}
     </Provider>
+    </>
+    
+    
   )
 }

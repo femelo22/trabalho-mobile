@@ -13,6 +13,7 @@ import { passwordValidator } from '../helpers/passwordValidator'
 import { nameValidator } from '../helpers/nameValidator'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../config/firebase-config'
+import { toast } from 'react-toastify'
 
 export default function RegisterScreen({ navigation }) {
   const [name, setName] = useState('')
@@ -47,7 +48,9 @@ export default function RegisterScreen({ navigation }) {
       })
       .catch(error => {
         console.log(error)
-        // ADD MENSAGENS DE ERRO MAIS BONITO
+        if(error.message === 'Firebase: Error (auth/email-already-in-use).') {
+          toast.error('Email já cadastrado!')
+        }
       })
   }
 
@@ -93,7 +96,7 @@ export default function RegisterScreen({ navigation }) {
         Sign Up
       </Button>
       <View style={styles.row}>
-        <Text>Already have an account? </Text>
+        <Text>Já possui uma conta? </Text>
         <TouchableOpacity onPress={() => navigation.replace('LoginScreen')}>
           <Text style={styles.link}>Login</Text>
         </TouchableOpacity>
