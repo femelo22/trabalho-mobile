@@ -50,6 +50,8 @@ export default function RegisterScreen({ navigation }) {
         console.log(error)
         if(error.message === 'Firebase: Error (auth/email-already-in-use).') {
           toast.error('Email já cadastrado!')
+        } else if (error.message === 'Firebase: Error (auth/invalid-email).') {
+          toast.error('Informações inválidas!')
         }
       })
   }
@@ -58,9 +60,9 @@ export default function RegisterScreen({ navigation }) {
     <Background>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      <Header>Create Account</Header>
+      <Header>Criar conta</Header>
       <TextInput
-        label="Name"
+        label="Nome"
         returnKeyType="next"
         value={name}
         onChangeText={(text) => setName(text)}
@@ -80,7 +82,7 @@ export default function RegisterScreen({ navigation }) {
         keyboardType="email-address"
       />
       <TextInput
-        label="Password"
+        label="Senha"
         returnKeyType="done"
         value={password}
         onChangeText={(text) => setPassword(text)}
@@ -93,12 +95,12 @@ export default function RegisterScreen({ navigation }) {
         onPress={cadastrar}
         style={{ marginTop: 24 }}
       >
-        Sign Up
+        Cadastrar
       </Button>
       <View style={styles.row}>
         <Text>Já possui uma conta? </Text>
         <TouchableOpacity onPress={() => navigation.replace('LoginScreen')}>
-          <Text style={styles.link}>Login</Text>
+          <Text style={styles.link}>Entrar</Text>
         </TouchableOpacity>
       </View>
     </Background>

@@ -52,7 +52,7 @@ export default function LoginScreen({ navigation }) {
     <Background>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      <Header>Welcome back.</Header>
+      <Header>Bem vindo de volta 👋🏻</Header>
       <TextInput
         label="Email"
         returnKeyType="next"
@@ -66,7 +66,7 @@ export default function LoginScreen({ navigation }) {
         keyboardType="email-address"
       />
       <TextInput
-        label="Password"
+        label="Senha"
         returnKeyType="done"
         value={password}
         onChangeText={(text) => setPassword(text)}
@@ -78,16 +78,16 @@ export default function LoginScreen({ navigation }) {
         <TouchableOpacity
           onPress={() => navigation.navigate('ResetPasswordScreen')}
         >
-          <Text style={styles.forgot}>Forgot your password?</Text>
+          <Text style={styles.forgot}>Esqueceu sua senha?</Text>
         </TouchableOpacity>
       </View>
       <Button mode="contained" onPress={logar}>
-        Login
+        Entrar
       </Button>
       <View style={styles.row}>
-        <Text>Don’t have an account? </Text>
+        <Text>Não possui conta? </Text>
         <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
-          <Text style={styles.link}>Sign up</Text>
+          <Text style={styles.link}>Cadastrar</Text>
         </TouchableOpacity>
       </View>
     </Background>

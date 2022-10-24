@@ -9,15 +9,15 @@ export default function StartScreen({ navigation }) {
   return (
     <Background>
       <Logo />
-      <Header>Login</Header>
+      <Header>Entrar</Header>
       <Paragraph>
-        Cadastrar usuário
+        {/* A sua loja virtual */}
       </Paragraph>
       <Button
         mode="contained"
         onPress={() => navigation.navigate('LoginScreen')}
       >
-        Login
+        Entrar
       </Button>
       <Button
         mode="outlined"
