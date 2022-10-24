@@ -1,5 +1,6 @@
 import { signOut } from 'firebase/auth';
 import React from 'react'
+import Background from '../components/Background';
 import Button from '../components/Button';
 import Header from "../components/Header";
 import { auth } from '../config/firebase-config';
@@ -14,12 +15,13 @@ export default function HomeScreen() {
     }
 
     return (
-        <> 
-        <Header>Home</Header>
-        <Button onPress={() => logout()}>
-        Sair
-      </Button>
-        </>
+         <Background>
+            <Header>Home</Header>
+            <Button onPress={() => logout()}>
+            Sair
+            </Button>
+         </Background>
+        
        
     );
 }

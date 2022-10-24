@@ -12,7 +12,7 @@ import {
   ResetPasswordScreen,
   Dashboard,
 } from './src/screens'
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import HomeScreen from './src/screens/HomeScreen'
 
 const Stack = createStackNavigator()
