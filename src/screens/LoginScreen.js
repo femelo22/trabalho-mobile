@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TouchableOpacity, StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-paper'
 import Background from '../components/Background'
@@ -11,7 +11,7 @@ import { theme } from '../core/theme'
 import { emailValidator } from '../helpers/emailValidator'
 import { passwordValidator } from '../helpers/passwordValidator'
 import { auth } from '../config/firebase-config'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth'
 import { toast } from 'react-toastify'
 // import { toast } from 'react-toastify'
 
@@ -25,27 +25,14 @@ export default function LoginScreen({ navigation }) {
         console.log('Logado')
         const user = response.user
         console.log(user)
-        //COLOCAR PARA NAVEGAR PARA TELA DE HOME
+
+        navigation.navigate('HomeScreen')
       })
       .catch(error => {
         toast.error('Credenciais inválidas.')
         setEmail('')
         setPassword('')
       })
-  }
-
-  const onLoginPressed = () => {
-    const emailError = emailValidator(email)
-    const passwordError = passwordValidator(password)
-    if (emailError || passwordError) {
-      setEmail({ ...email, error: emailError })
-      setPassword({ ...password, error: passwordError })
-      return
-    }
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Dashboard' }],
-    })
   }
 
   return (

@@ -44,7 +44,8 @@ export default function RegisterScreen({ navigation }) {
         console.log('criado com sucesso')
         const user = response.user
         console.log(user)
-        //COLOCAR NAVEGACAO
+        toast.success('Conta registrada com sucesso!')
+        navigation.navigate('LoginScreen')
       })
       .catch(error => {
         console.log(error)

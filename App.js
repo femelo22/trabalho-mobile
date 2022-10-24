@@ -13,6 +13,7 @@ import {
   Dashboard,
 } from './src/screens'
 import { ToastContainer, toast } from 'react-toastify'
+import HomeScreen from './src/screens/HomeScreen'
 
 const Stack = createStackNavigator()
 
@@ -34,8 +35,8 @@ export default function App() {
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen
             name="ResetPasswordScreen"
-            component={ResetPasswordScreen}
-          />
+            component={ResetPasswordScreen} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
         </Stack.Navigator>
       </NavigationContainer>
       {/* <ToastContainer /> */}
