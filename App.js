@@ -11,6 +11,7 @@ import {
   RegisterScreen,
   ResetPasswordScreen,
   Dashboard,
+  CadastroPlanta
 } from './src/screens'
 import { ToastContainer } from 'react-toastify'
 import HomeScreen from './src/screens/HomeScreen'
@@ -37,6 +38,7 @@ export default function App() {
             name="ResetPasswordScreen"
             component={ResetPasswordScreen} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="CadastroPlanta" component={CadastroPlanta} />
         </Stack.Navigator>
       </NavigationContainer>
       {/* <ToastContainer /> */}

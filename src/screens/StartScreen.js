@@ -6,6 +6,7 @@ import Button from '../components/Button'
 import Paragraph from '../components/Paragraph'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../config/firebase-config'
+import NavBar from '../components/NavBar'
 
 export default function StartScreen({ navigation }) {
 
