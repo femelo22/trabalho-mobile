@@ -16,15 +16,19 @@ import { auth, db } from '../config/firebase-config'
 import { toast } from 'react-toastify'
 import LogoCadastroPlanta from '../components/LogoCadastroPlanta'
 import { addDoc, collection } from 'firebase/firestore'
+import { uuidv4 as uuid } from '@firebase/util'
 
 export default function CadastroPlanta({ navigation }) {
+  const [id, setId] = useState('')
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
 
 const cadastrar = () => {
+    const id = uuid();
     addDoc(collection(db, "plantas"), 
     {
+      id: id,
       nome: name,
       descricao: description,
       preco: price
@@ -39,25 +43,6 @@ const cadastrar = () => {
   setDescription('');
   setPrice('');
 }
-
-//   const cadastrar = () => {
-//     createUserWithEmailAndPassword(auth, email, password) 
-//       .then((response) => {
-//         console.log('criado com sucesso')
-//         const user = response.user
-//         console.log(user)
-//         toast.success('Conta registrada com sucesso!')
-//         navigation.navigate('LoginScreen')
-//       })
-//       .catch(error => {
-//         console.log(error)
-//         if(error.message === 'Firebase: Error (auth/email-already-in-use).') {
-//           toast.error('Email já cadastrado!')
-//         } else if (error.message === 'Firebase: Error (auth/invalid-email).') {
-//           toast.error('Informações inválidas!')
-//         }
-//       })
-//   }
 
   return (
     <Background>
