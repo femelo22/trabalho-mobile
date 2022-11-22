@@ -20,7 +20,6 @@ export default function LoginScreen({ navigation }) {
   const logar = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((response ) => {
-        console.log('Logado')
         const user = response.user
         console.log(user)
 
