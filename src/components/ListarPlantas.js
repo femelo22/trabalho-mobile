@@ -1,26 +1,22 @@
 import { doc, getDoc } from "firebase/firestore";
+import { useEffect, React } from "react";
 import { FlatList } from "react-native-web";
+import { db } from "../config/firebase-config";
 import PlantaCard from "./PlantaCard";
 
 export default function ListarPlantas() {
 
     const ver = () => {
-        const docRef = doc(db, "plantas", 'oAQ4XhN8IRvKGDiWy3XM');
-        const dados = getDoc(docRef)
-        console.log(dados)
-        .then((doc) => {
-          if (doc.exists) {
-            console.log("Dados: ", doc.data())
-            return doc.data();
-          } else {
-            console.log("Erro");
-        }})
-        .catch(error => {
-          console.log(error);
-        })
+      const plantasRef = db.collection('plantas');
+      const snapshot = plantasRef.get();
+        snapshot.forEach(doc => {
+          console.log(doc.id, '=>', doc.data());
+        });
       }
 
-      const data = ver();
+    useEffect(() => {
+      ver()
+    }, [])
   
     return <>
       <FlatList

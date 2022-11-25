@@ -25,7 +25,7 @@ export default function HomeScreen({ navigation }) {
   }
 
 
-  const ver = () => {
+  const listarPlantas = () => {
     const plantasRef = db.collection('plantas');
 
     const results = plantasRef.get();
@@ -68,7 +68,7 @@ export default function HomeScreen({ navigation }) {
   ]
 
   useEffect(() => {
-    // ver(); // TODO: fix
+    listarPlantas(); // TODO: fix
   }, []);
 
 
@@ -86,8 +86,6 @@ export default function HomeScreen({ navigation }) {
       <View>
         <Paragraph>Plantas em estoque</Paragraph>
       </View>
-
-      {/* <ListarPlantas /> */}
 
       <FlatList
         data={DATA_MOCK}
